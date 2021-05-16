@@ -11,7 +11,7 @@ top: false
 # 如果要对文章设置阅读验证密码的话,就可以在设置password的值,该值必须是用SHA256加密后的密码,防止被他人识破
 password:
 # 本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行
-mathjax: false
+katex: true
 summary:
 categories:
     - leetcode
