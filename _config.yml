@@ -123,9 +123,9 @@ feed:
   enable: true
   type: atom
   path: atom.xml
-  limit: 20
+  limit: false  # Use 0 or false to show all posts
   hub:
-  content:
+  content: true
   content_limit: 140
   content_limit_delim: ' '
   order_by: -date
