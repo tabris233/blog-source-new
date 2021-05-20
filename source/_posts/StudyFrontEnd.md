@@ -13,7 +13,7 @@ password:
 mathjax: false
 summary:
 categories:
-    - study
+  - 学习
 tags:
     - 前端
     - front

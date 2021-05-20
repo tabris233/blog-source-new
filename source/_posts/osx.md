@@ -13,7 +13,9 @@ password:
 # 本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行
 mathjax: false
 summary:
-categories: 实用技能
+categories:
+  - 学习
+  - 工具
 tags:
   - osx
 ---

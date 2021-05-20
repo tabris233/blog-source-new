@@ -14,9 +14,10 @@ password:
 mathjax: false
 summary:
 categories:
+  - 学习
   - redis
 tags:
-  - osx
+  - redis
 ---
 
 [TOC]
@@ -87,23 +88,23 @@ C/C++ 开发环境这里不展开了，参考这个搞下就行了
 # 阅读内容
 
 - [ ] 数据结构
-  
+
   - [ ] 基础数据结sdsß
-    
+
     - [x] sds （sds.h, sds.c, sdsalloc.h)
-    
+
     - [x] list    ()
-    
+
     - [x] dict  (dict.h, dict.c)
-    
+
     - [ ] zkiplist
-    
+
     - [ ] intset
-    
+
     - [ ] ziplist
-  
+
   - [ ] 外部数据结构（各类对象）
-    
+
     - [ ] 对象的类型和编码
     - [ ] 字符串对象
     - [ ] 列表对象

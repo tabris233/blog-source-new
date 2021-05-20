@@ -18,6 +18,7 @@ password:
 mathjax: false
 summary:
 categories:
+  - 学习
   - redis
 tags:
   - redis

@@ -80,28 +80,28 @@ tags:
 
     ```yaml
     language: node_js   # 指定运行环境
-
+    
     node_js: '11'       # node环境的版本
-
+    
     branches:           # 该shell脚本只对github的blog-source分支生效
       only:
         - t'tblog-source
-
+    
     git:                 # 克隆github上的项目到travis
       quite: true        # 为了不打印一些日志，故设为安静克隆
       depth: 1           # 只克隆最新的一次commit提交，最多可以克隆最新的30次提交，但是没必要
       submodules: true   # 不克隆子项目(避免再次克隆hexo主题)
-
+    
     cache: yarn          # 缓存yarn命令也就是yarn add命令执行后的目录文件，即node_modules
-
+    
     install:
       - yarn global add hexo-cli # 在安装阶段，运行yarn命令来安装依赖
       - yarn
-
+    
     script:
       - hexo clean
       - hexo generate
-
+    
     deploy:              # 发布阶段
       provider: pages    # 解析支持者为github pages
       skip_cleanup: true # 必须打开，如果在travis构建期间你正在推代码，很可能误删你最新的上传代码

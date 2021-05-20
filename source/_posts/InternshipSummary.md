@@ -11,7 +11,9 @@ password: 5b3c45ef1507cff68a1fba05bda1025bc71da39135d30e0f69f4b66f919162bc
 # 本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行
 mathjax: false
 summary:
-categories: 工作
+categories:
+  - 学习
+  - 工作
 tags:
   - 实习
 toc: true

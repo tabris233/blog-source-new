@@ -12,7 +12,9 @@ password:
 # 本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行
 mathjax: false
 summary:
-categories: 编程语言
+categories:
+  - 学习
+  - 编程语言
 tags:
   - python
 ---

@@ -14,6 +14,7 @@ password:
 mathjax: false
 summary:
 categories:
+  - 学习
   - redis
 tags:
   - redis
@@ -361,17 +362,17 @@ strcat(c_string, sds->buf);
 ## SDS2.0
 
 > 2.0 原由
-> 
-> https://github.com/antirez/redis/issues/757  
+>
+> https://github.com/antirez/redis/issues/757
 > 问题就在len和free的使用类型上，使用的是unsigned int
-> 
+>
 > - unsigned int，也就是32位，最多只能记录4GB大小，超过4G的大小将无法使用
 > - 内存损耗，如果字符串都非常短，可能16位就能记录，那么32位就损耗了2位
-> 
+>
 > 简单的换len和free的类型是不行的，仔细观察上面两个缺点，发现他们其实是有点互斥的成分在里面。
 > 一个嫌弃是unsigned int过小，一个是嫌弃unsigned int过大
-> 
-> 然后这个PR就提出了自适应的sdshdr  
+>
+> 然后这个PR就提出了自适应的sdshdr
 > [https://github.com/antirez/redis/pull/2509](https://github.com/antirez/redis/pull/2509)也就是SDS2.0的实现
 
 ### SDS 2.0 定义
