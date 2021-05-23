@@ -5,7 +5,7 @@ description: ["LeetCode 第242场周赛。。 彻底翻车"]
 toc: true
 author: tabris
 img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516113536.png
-mathjax: false
+katex: true
 summary:
 categories:
     - leetcode
