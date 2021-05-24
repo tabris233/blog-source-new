@@ -132,3 +132,16 @@ feed:
   icon: icon.png
   autodiscovery: true
   template:
+
+# Artitalk
+# see https://artitalk.js.org/
+artitalk:
+  enable: true
+  appId: XkeYrd6r1FrJXgASPvPJa9Hp-gzGzoHsz # leancloud application app id
+  appKey: de9Yfw8ns8xwf6S9eHOj82Wi # leancloud application app key
+  path:
+  js:
+  option:
+  front_matter:
+    aside: false # 关闭侧边栏
+    comments: false # 关闭评论

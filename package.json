@@ -15,6 +15,7 @@
   "dependencies": {
     "@neilsustc/markdown-it-katex": "^0.13.5",
     "hexo": "^5.0.0",
+    "hexo-butterfly-artitalk": "^1.0.3",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-feed": "^3.0.0",
