@@ -142,7 +142,7 @@ artitalk:
   path:
   js:
   option:
-    serverURL: lcapi.tabris.top
+    serverURL: https://lcapi.tabris.top
   front_matter:
     aside: false # 关闭侧边栏
     comments: false # 关闭评论
