@@ -20,6 +20,7 @@ summary:
 categories:
   - 学习
   - redis
+  - 基础数据结构
 tags:
   - redis
   - dict
@@ -29,7 +30,7 @@ tags:
 
 [TOC]
 
-> 基于 [Redis 6.2.1]([redis/redis at 6.2.1 (github.com)](https://github.com/redis/redis/tree/6.2.1))
+> 基于 [Redis 6.2.1](https://github.com/redis/redis/tree/6.2.1)
 
 # dict（字典）
 

@@ -1,16 +1,19 @@
 ---
-title: "【TODO】Redis 学习 基础数据结构篇 之 跳表(skiplist)"
+title: "Redis 学习 基础数据结构篇 之 跳表(skiplist)"
 date: 2021-05-04 20:10:58
+Updated: 2021-05-26 01:30:06
 description: "Redis 基础数据结构 - 跳表。"
 mathjax: false
 summary:
 categories:
   - 学习
   - redis
+  - 基础数据结构
 tags:
   - redis
   - skiplist
   - 跳表
+  - TODO
 ---
 
 [TOC]

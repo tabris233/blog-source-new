@@ -92,17 +92,13 @@ C/C++ 开发环境这里不展开了，参考这个搞下就行了
   - [ ] 基础数据结sdsß
 
     - [x] sds （sds.h, sds.c, sdsalloc.h)
-
-    - [x] list    ()
-
+    - [x] list    (adlist.h adlist.c) *其实就是最基本的双向链表，不细看了。*
     - [x] dict  (dict.h, dict.c)
-
-    - [ ] zkiplist
-
-    - [ ] intset
-
-    - [ ] ziplist
-
+    - [x] zkiplist (server.h, server,c)
+    - [x] intset (intset.h, inset.c)
+    - [x] ziplist (ziplist.h, ziplist.c)
+    - [ ] zipmap（zipmap.h, zipmap.c）
+    - [ ] quicklist (quicklist.h, quicklist.c)
   - [ ] 外部数据结构（各类对象）
 
     - [ ] 对象的类型和编码
@@ -111,3 +107,27 @@ C/C++ 开发环境这里不展开了，参考这个搞下就行了
     - [ ] 哈希对象
     - [ ] 集合对象
     - [ ] 有序集合对象
+    - [ ] 模块对象
+    - [ ] 流对象
+  - [ ] 特殊结构
+      - [ ] GEO
+      - [ ] HyperLogLog
+- [ ] 单机数据库的实现
+    - [ ] 数据库
+    - [ ] RDB持久化
+    - [ ] AOF 持久化
+    - [ ] 时间
+    - [ ] 客户端
+    - [ ] 服务器
+- [ ] 多机数据库的实现
+    - [ ] 复制
+    - [ ] Sentinel （哨兵）
+    - [ ] 集群
+- [ ] 独立功能实现
+    - [ ] 发布与订阅
+    - [ ] 事务
+    - [ ] lua脚本
+    - [ ] 排序
+    - [ ] 二进制位数组
+    - [ ] 慢查询日志
+    - [ ] 监视器

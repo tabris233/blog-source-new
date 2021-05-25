@@ -7,6 +7,7 @@ summary:
 categories:
   - 学习
   - redis
+  - 基础数据结构
 tags:
   - redis
   - intset

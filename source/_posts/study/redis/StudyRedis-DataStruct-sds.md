@@ -16,9 +16,11 @@ summary:
 categories:
   - 学习
   - redis
+  - 基础数据结构
 tags:
   - redis
   - sds
+  - 简单动态字符串
 ---
 
 [TOC]
