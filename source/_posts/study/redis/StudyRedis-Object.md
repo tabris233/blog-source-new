@@ -122,9 +122,8 @@ typedef struct redisObject {
 >       dict *d;
 >       dictIterator *di;
 >       struct dictEntry *de;
->       size_t asize = 0, elesize = 0, samples = 0;</details>
+>       size_t asize = 0, elesize = 0, samples = 0;
 >
-> ```
 >   if (o->type == OBJ_STRING) {
 >       if(o->encoding == OBJ_ENCODING_INT) {
 >           asize = sizeof(*o);
@@ -280,13 +279,9 @@ typedef struct redisObject {
 >       serverPanic("Unknown object type");
 >   }
 >   return asize;
-> ```
->
 > }
->
 > ```
 > </details>
-> ```
 
 | 类型       | 编码                   | 对象                                                        |
 | ---------- | ---------------------- | ----------------------------------------------------------- |
@@ -331,7 +326,7 @@ typedef struct redisObject {
    ┌────────────────────────────────────────┬───────────────────────────┐
    │                redisObject             │          sdshdr           │
    ├──────┬──────────┬─────┬─────┬──────────┼─────┬───────┬───────┬─────┤
-   │ type │ encoding │ ptr │ lru │ refcount │ len │ alloc │ flags │ buf │
+   │ type │ encoding │ ptr │ lru │ refcount │ len │ alloc │ flags │ buf │
    └──────┴──────────┴─────┴─────┴──────────┴─────┴───────┴───────┴─────┘
                     embstr 编码创建的内存块结构
 ```
