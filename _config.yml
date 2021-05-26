@@ -5,11 +5,11 @@
 # Site
 title: tabris的博客
 subtitle: 'IT互联网'
-description: 'With the low level of hard work of most people, there is no chance to fight for talent.'
+description: 'A Coding Peasant'
 keywords: 'cpp,linux,algorithm'
 author: 'tabris'
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
