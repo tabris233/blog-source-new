@@ -249,7 +249,7 @@ typedef struct redisObject {
 >               asize += sizeof(*cg);
 >               asize += streamRadixTreeMemoryUsage(cg->pel);
 >               asize += sizeof(streamNACK)*raxSize(cg->pel);
->       
+>           
 >               /* For each consumer we also need to add the basic data
 >                * structures and the PEL memory usage. */
 >               raxIterator cri;

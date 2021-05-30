@@ -26,7 +26,7 @@ tags:
 
 简单模拟， 不过我这里写的太麻烦了。
 
-```c
+```cpp
 class Solution {
 public:
     bool checkZeroOnes(string s) {
@@ -69,7 +69,7 @@ public:
 
 
 
-```c
+```cpp
 class Solution {
 public:
     bool check(vector<int>& dist, double hour, double x) {
@@ -105,7 +105,7 @@ public:
 
 这里可以参考扫描线维护区间覆盖的方式逐步遍历过去。同时判断每个位置是否被覆盖了。 
 
-```c
+```cpp
 class Solution {
 public:
     bool canReach(string s, int minJump, int maxJump) {
@@ -166,7 +166,7 @@ $dp(i) = max(-dp(j) + sum[j]), j \in [i+1, n)$
 
 最大值可以从后遍历维护，总的复杂度是$O(N)$的
 
-```c
+```cpp
 class Solution {
 public:
     int stoneGameVIII(vector<int>& a) {
