@@ -1,7 +1,7 @@
 ---
 title: "Redis 学习 数据库篇"
 date: 2021-05-30 00:00:00
-updated: 2021-06-06 12:48:12
+updated: 2021-06-06 22:36:21
 description: "Redis 数据篇。"
 mathjax: false
 summary:
@@ -358,5 +358,224 @@ typedef struct redisDb{
 
 定时删除和惰性删除是对服务器两种资源（内存，CPU）偏重其中一个下所诞生的。
 
+-   定时删除占用太多CPU时间，影响服务器的响应时间和吞吐量。
+-   惰性删除浪费太多内存，有内存泄漏的危险。
 
+定期删除策略是前两种策略的一种整合和折中：
 
+-   定期删除策略每隔一段时间执行一次删除过期键操作，并通过限制删除操作制定的时长和频率来减少删除操作对CPU时间的影响。
+-   除此之外，通过定期删除过期键，定期删除策略有效减少了因为过期键而带来的内存浪费。
+
+定期删除策略的难点时确定删除操作执行的时长和频率：
+
+-   如果删除操作执行的太频繁，或者执行时间太长，定期删除策略就会退化成定时删除策略，以至于将CPU时间过多地消耗在删除过期键上面。
+-   如果删除操作执行得太少，或者执行时间太短，定期删除策略优惠和惰性删除策略一样，出现浪费内存的情况。
+
+因此，如果采用定期删除策略，服务器必须根据情况，合理地设置删除操作的执行时长和执行频率。
+
+# Redis服务器的过期键删除策略。
+
+Redis服务器实际泗洪的是惰性删除和定期删除两种策略：通过配合这两种策略，服务器可以更好的平衡CPU和内存的消耗。
+
+## 惰性删除策略的实现。
+
+过期键的惰性删除策略由db.c/expireIfNeeded函数实现，所有读写数据库的Redis命令在执行之前都会调用expireIfNeeded函数对输入键进行检查：
+
+-   如果输入键已经过期，那么expireIfNeeded函数将输入键从数据库中删除。
+-   如果输入键未过期，那么expireIfNeeded函数不做动作。
+
+expireIfNeeded函数就像一个过滤器，它可以在命令真正执行之前，过滤掉过期的输入键，从而避免命令接触到过期键。
+
+另外，因为每个被访问的键都可能因为过期而被expireIfNeeded函数删除，所以每个命令的实现函数都必须能同时处理键存在以及键不存在这两种情况：
+
+-   当键存在时，命令按照键存在的情况执行。
+-   当键不存在或者键因为过期而被expireIfNeeded函数删除时，命令按照键不存在的情况执行。
+
+## 定期删除策略的实现。
+
+过期键的定期删除策略由`expire.c/activeExpireCycle`函数实现，每当Redis的服务器周期性操作`server.c/serverCron`函数执行时，`activeExpireCycle` 函数就会被`serverCron`中的`databsaesCron`调用。它在规定的时间内，多次便利服务器中的各个数据库，从数据库中的expires字典中随机检查一部分键的过期时间，并删除其中的过期键。
+
+`activeExpireCycle`函数的工作模式可以总结如下：
+
+-   函数每次运行时，都从一定数量的数据库中取出一定数量的随机键进行检查，并删除其中过期的键。
+-   全局变量`current_db`会记录当前`activeExpireCycle`函数检查的进度，并在下一次`activeExpireCycle`函数调用时，接着上一次的进度进行处理。比如说，当前`activeExpireCycle`函数在便利$10$号数据库时返回了，那么下次`activeExpireCycle`函数执行时，将从$11$号数据库开始查找并删除过期键。
+-   随着`activeExpireCycle`函数的不断执行，服务器中所有的数据库键都会被检查一遍，这是函数将`current_db`变量重置为$0$，然后再次开始新一轮的检查。
+
+# AOF、RDB和复制功能对过期键的处理 
+
+## AOF的处理
+
+### AOF文件写入
+
+当服务器以AOF持久化模式运行时，如果某个键已经过期，但它还没有被惰性删除或者定期删除，那么AOF文件不会因为这个过期键产生任何影响。
+
+当过期键被惰性删除或者定期删除之后，程序会向AOF文件追加（append）一条DEL命令，来显式地记录该键已经被删除。
+
+### AOF重写
+
+和生成RDB文件时类似，在执行AOF重写的过程中，程序会对数据库中的键进行检查，已经过期的键不会被保存到重写后的AOF文件中。
+
+## RDB的处理
+
+## 生成RDB文件
+
+在执行save命令或者BGSAVE命令创建一个新的RDB文件时，程序会对数据库中的键进行检查，已过期的键不会被保存到新创建的RDB文件中。
+
+## 载入RDB文件
+
+在启动Redis服务器时，如果服务器开启了RDB功能，那么服务器将对RDB文件进行载入：
+
+-   如果服务器以主服务器模式运行，那么在载入RDB文件时，程序会对文件中保存的键进行检查，未过期的键将被载入到数据库中，而过期的键则会被忽略，所以过期的键对载入RDB文件的主服务器不会造成影响。
+
+-   如果服务器以从服务器模式运行，那么在载入RDB文件时，文件中保存的所有键，无论是否过期，都会被载入到数据库中。
+
+    >   不过，因为主从服务器在进行数据同步时，从服务器的数据库就会被清空，所以一般来讲，过期键对载入RDB文件的从服务器也不会产生影响。
+
+## 复制
+
+当服务器运行在复制模式下，从服务器的过期键删除动作由主服务器控制：
+
+-   主服务器在删除一个过期键之后，会显式地向所有从服务器发送一个DEL命令，告知从服务器删除这个过期键。
+-   从服务器在执行客户端发送的读命令式，碰到过期键也不会将过期键删除，而是继续像处理未过期的键一样来处理过期键。
+-   从服务器只有接收到主服务器发过来的DEL命令，才会删除过期键。
+
+通过主服务器来控制从服务器统一地删除过期键，可以保证主从服务器数据的一致性，也正是因为这个原因，当一个过期键仍然存在于主服务器的数据库时，这个过期键在从服务器的拷贝也会继续存在。
+
+# 数据库通知
+
+数据库通知时Redis 2.8版本新增加的功能，这个功能可以让客户端通过订阅给定的频道或者模式，来获知数据库中键的变化，以及数据库中命令的执行情况。
+
+通知分为两种类型：
+
+1.  键空间通知（key-space notification）：关注具体某个键执行了什么命令。
+
+    ```c
+    127.0.0.1:6379＞ SUBSCRIBE _ _keyspace@0_ _:message
+    Reading messages... (press Ctrl-C to quit)
+    1) "subscribe"  //订阅信息
+    2) "__keyspace@0__:message"
+    3) (integer) 1
+    1) "message"    //执行SET命令
+    2) "_ _keyspace@0_ _:message"
+    3) "set"
+    1) "message"    //执行EXPIRE命令
+    2) "_ _keyspace@0_ _:message"
+    3) "expire"
+    1) "message"    //执行DEL命令
+    2) "_ _keyspace@0_ _:message"
+    3) "del"
+    ```
+
+    
+
+2.  键事件通知（key-event notification）：关注某一个命令被那些键执行了。
+
+    ```c
+    127.0.0.1:6379＞ SUBSCRIBE _ _keyevent@0_ _:del
+    Reading messages... (press Ctrl-C to quit)
+    1) "subscribe"  //订阅信息
+    2) "_ _keyevent@0_ _:del"
+    3) (integer) 1
+    1) "message"    //键key执行了DEL命令
+    2) "_ _keyevent@0_ _:del"
+    3) "key"
+    1) "message"    //键number执行了DEL命令
+    2) "_ _keyevent@0_ _:del"
+    3) "number"
+    1) "message"    //键message执行了DEL命令
+    2) "_ _keyevent@0_ _:del"
+    3) "message"
+    ```
+
+服务器配置的notify-keyspace-events选项决定了服务器所发送通知的类型：
+
+-   想让服务器发送所有类型的键空间通知和键事件通知，可以将选项的值设置为AKE。
+-   想让服务器发送所有类型的键空间通知，可以将选项的值设置为AK。
+-   想让服务器发送所有类型的键事件通知，可以将选项的值设置为AE。
+-   想让服务器只发送和字符串键有关的键空间通知，可以将选项的值设置为K$。
+-   想让服务器只发送和列表键有关的键事件通知，可以将选项的值设置为El。
+
+关于数据库通知功能的详细用法，以及notify-keyspace-events选项的更多设置，Redis的官方文档已经做了很详细的介绍，这里不再赘述。
+
+## 发送通知
+
+发送数据库通知的功能是由notify.c/notifyKeyspaceEvent函数实现的：
+
+```c
+void notifyKeyspaceEvent(int type,char *event,robj *key,int dbid);
+```
+
+函数的type参数是当前想要发送的通知的类型，程序会根据这个值来判断通知是否就是服务器配置notify-keyspace-events选项所选定的通知类型，从而决定是否发送通知。
+
+event、keys和dbid分别是事件的名称、产生事件的键，以及产生事件的数据库号码，函数会根据type参数以及这三个参数来构建事件通知的内容，以及接收通知的频道名。
+
+每当一个Redis命令需要发送数据库通知的时候，该命令的实现函数就会调用notify-KeyspaceEvent函数，并向函数传递传递该命令所引发的事件的相关信息。
+
+```c
+
+/* The API provided to the rest of the Redis core is a simple function:
+ *
+ * notifyKeyspaceEvent(char *event, robj *key, int dbid);
+ *
+ * 'event' is a C string representing the event name.
+ * 'key' is a Redis object representing the key name.
+ * 'dbid' is the database ID where the key lives.  */
+void notifyKeyspaceEvent(int type, char *event, robj *key, int dbid) {
+    sds chan;
+    robj *chanobj, *eventobj;
+    int len = -1;
+    char buf[24];
+
+    /* If any modules are interested in events, notify the module system now.
+     * This bypasses the notifications configuration, but the module engine
+     * will only call event subscribers if the event type matches the types
+     * they are interested in. */
+     moduleNotifyKeyspaceEvent(type, event, key, dbid);
+
+    /* If notifications for this class of events are off, return ASAP. */
+    if (!(server.notify_keyspace_events & type)) return;
+
+    eventobj = createStringObject(event,strlen(event));
+
+    /* __keyspace@<db>__:<key> <event> notifications. */
+    if (server.notify_keyspace_events & NOTIFY_KEYSPACE) {
+        chan = sdsnewlen("__keyspace@",11);
+        len = ll2string(buf,sizeof(buf),dbid);
+        chan = sdscatlen(chan, buf, len);
+        chan = sdscatlen(chan, "__:", 3);
+        chan = sdscatsds(chan, key->ptr);
+        chanobj = createObject(OBJ_STRING, chan);
+        pubsubPublishMessage(chanobj, eventobj);
+        decrRefCount(chanobj);
+    }
+
+    /* __keyevent@<db>__:<event> <key> notifications. */
+    if (server.notify_keyspace_events & NOTIFY_KEYEVENT) {
+        chan = sdsnewlen("__keyevent@",11);
+        if (len == -1) len = ll2string(buf,sizeof(buf),dbid);
+        chan = sdscatlen(chan, buf, len);
+        chan = sdscatlen(chan, "__:", 3);
+        chan = sdscatsds(chan, eventobj->ptr);
+        chanobj = createObject(OBJ_STRING, chan);
+        pubsubPublishMessage(chanobj, key);
+        decrRefCount(chanobj);
+    }
+    decrRefCount(eventobj);
+}
+```
+
+# 总结
+
+1.  Redis服务器的所有数据库都保存在redisServer.db数组中，而数据库的数量则由redisServer.dbnum属性保存。
+2.  客户端通过修改目标数据库指针，让它指向redisServer.db数组中的不同元素来切换不同的数据库。
+3.  数据库主要由dict和expires两个字典构成，其中dict字典负责保存键值对，而expires字典则负责保存键的过期时间。
+4.  因为数据库由字典构成，所以对数据库的操作都是建立在字典操作之上的。
+5.  数据库的键总是一个字符串对象，而值则可以是任意一种Redis对象类型，包括字符串对象、哈希表对象、集合对象、列表对象和有序集合对象，分别对应字符串键、哈希表键、集合键、列表键和有序集合键。
+6.  expires字典的键指向数据库中的某个键，而值则记录了数据库键的过期时间，过期时间是一个以毫秒为单位的UNIX时间戳。
+7.  Redis使用惰性删除和定期删除两种策略来删除过期的键：惰性删除策略只在碰到过期键时才进行删除操作，定期删除策略则每隔一段时间主动查找并删除过期键。
+8.  执行SAVE命令或者BGSAVE命令所产生的新RDB文件不会包含已经过期的键。
+9.  执行BGREWRITEAOF命令所产生的重写AOF文件不会包含已经过期的键。
+10.  当一个过期键被删除之后，服务器会追加一条DEL命令到现有AOF文件的末尾，显式地删除过期键。
+11.  当主服务器删除一个过期键之后，它会向所有从服务器发送一条DEL命令，显式地删除过期键。
+12.  从服务器即使发现过期键也不会自作主张地删除它，而是等待主节点发来DEL命令，这种统一、中心化的过期键删除策略可以保证主从服务器数据的一致性。
+13.  当Redis命令对数据库进行修改之后，服务器会根据配置向客户端发送数据库通知。
