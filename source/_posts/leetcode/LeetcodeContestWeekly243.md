@@ -1,5 +1,5 @@
 ---
-title: "LeetCode 第243场周赛"
+, (sum[bb]-sum[p])title: "LeetCode 第243场周赛"
 date: 2021-05-30 12:33:00
 description: ["LeetCode 第243场周赛。。 再次翻车"]
 toc: true

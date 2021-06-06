@@ -13,7 +13,6 @@ tags:
   - redis
   - object
   - 对象
-  - TODO
 ---
 > 基于 [Redis 6.2.1](https://github.com/redis/redis/tree/6.2.1)
 
@@ -249,7 +248,7 @@ typedef struct redisObject {
 >               asize += sizeof(*cg);
 >               asize += streamRadixTreeMemoryUsage(cg->pel);
 >               asize += sizeof(streamNACK)*raxSize(cg->pel);
->           
+>               
 >               /* For each consumer we also need to add the basic data
 >                * structures and the PEL memory usage. */
 >               raxIterator cri;
