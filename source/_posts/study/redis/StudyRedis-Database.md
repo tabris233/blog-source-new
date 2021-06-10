@@ -13,8 +13,6 @@ tags:
   - redis
   - database
   - 数据库
-  - TODO
-
 ---
 
 > 基于  [Redis 6.2.1](https://github.com/redis/redis/tree/6.2.1)
