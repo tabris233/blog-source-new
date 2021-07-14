@@ -285,3 +285,41 @@ func get(sum [100009]int, i int) int {
     return ans
 }
 ```
+
+## 离散化
+
+```go
+func lisanhua(nums []int) []int {
+    temp := make([]int, 0)
+    for _, v := range nums {
+        temp = append(temp, v)
+    }
+
+    sort.Ints(temp)
+    lt := 0 
+    for i := range temp {
+        if i > 0 && temp[i] == temp[i-1] {
+            continue
+        }
+
+        temp[lt] = temp[i]
+        lt++
+    }
+
+    for i := range nums {
+        l, r, mid, ans := 0, lt-1, -1, -1
+        for l<=r {
+            mid = (r+l) / 2
+            if temp[mid] >= nums[i] {
+                r, ans = mid - 1, mid
+            } else {
+                l = mid + 1
+            }
+        }
+        nums[i] = ans + 1
+    }
+
+    return nums
+}
+```
+
