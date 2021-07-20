@@ -20,7 +20,14 @@ tags:
   - Golang
 ---
 
-
+中文：在线入门指引
+http://go-tour-zh.appspot.com/basics/1
+中文：文档首页
+https://go-zh.org/doc/
+中文首页
+https://go-zh.org/
+英文首页
+https://golang.org/
 
 [Go 中文主页](https://go-zh.org/)
 
