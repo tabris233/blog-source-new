@@ -245,25 +245,15 @@ func (t boxSlice) Swap(i, j int) {
 
 ```go
 // lis
-lis := make([]int, 0)
-for _, v := range obstacles {
-  if len(lis) == 0 || lis[len(lis)-1] <= v {
-    lis = append(lis, v)
+lis := []int{}
+for _, v := range arr {
+  p := sort.SearchInts(lis, v+1)  // 二分查找 第一个 >= v+1 的位置
+                                  // v 最长上升子序列。
+                                  // v+1 最长不下降子序列。
+  if p < len(lis) {
+    lis[p] = v
   } else {
-    pos := func() int {
-      l, r, mid, ans := 0, len(lis)-1, -1, 0
-      for l<=r {
-        mid = (l+r) >> 1
-        if lis[mid] >= v {  // 去掉= 就是最长不下降。
-          r, ans = mid-1, mid
-        } else {
-          l = mid+1
-        }
-      }
-      return ans
-    }()
-
-    lis[pos] = v
+    lis = append(lis, v)
   }
 }
 ```
@@ -298,36 +288,25 @@ func (bit *BIT) get(i int) int {
 
 ```go
 func lisanhua(nums []int) []int {
-    temp := make([]int, 0)
-    for _, v := range nums {
-        temp = append(temp, v)
-    }
+	temp := make([]int, len(nums))  // 这里的cap 要提前申请好。
+	copy(temp, nums)
 
-    sort.Ints(temp)
-    lt := 0 
-    for i := range temp {
-        if i > 0 && temp[i] == temp[i-1] {
-            continue
-        }
+	sort.Ints(temp)
+	lt := 0
+	for i := range temp {
+		if i > 0 && temp[i] == temp[i-1] {
+			continue
+		}
 
-        temp[lt] = temp[i]
-        lt++
-    }
+		temp[lt] = temp[i]
+		lt++
+	}
 
-    for i := range nums {
-        l, r, mid, ans := 0, lt-1, -1, -1
-        for l<=r {
-            mid = (r+l) / 2
-            if temp[mid] >= nums[i] {
-                r, ans = mid - 1, mid
-            } else {
-                l = mid + 1
-            }
-        }
-        nums[i] = ans + 1
-    }
+	for i := range nums {
+		nums[i] = sort.SearchInts(temp, nums[i]) + 1
+	}
 
-    return nums
+	return nums
 }
 ```
 
