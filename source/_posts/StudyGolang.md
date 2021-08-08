@@ -245,49 +245,49 @@ func (t boxSlice) Swap(i, j int) {
 ```go
 // lis
 lis := make([]int, 0)
-for _, v := range arr {
-    if len(lis) == 0 {
-        lis = append(lis, v)
-    } else {
-        if lis[len(lis)-1] != MOD {
-        lis = append(lis, MOD)
+for _, v := range obstacles {
+  if len(lis) == 0 || lis[len(lis)-1] <= v {
+    lis = append(lis, v)
+  } else {
+    pos := func() int {
+      l, r, mid, ans := 0, len(lis)-1, -1, 0
+      for l<=r {
+        mid = (l+r) >> 1
+        if lis[mid] >= v {  // 去掉= 就是最长不下降。
+          r, ans = mid-1, mid
+        } else {
+          l = mid+1
         }
-        pos := func() int {
-            l, r, mid, ans := 0, len(lis)-1, -1, -1
-            for l<=r {
-                mid = (l+r) >> 1
-                if lis[mid] >= v {
-                    r, ans = mid-1, mid
-                } else {
-                    l = mid+1
-                }
-            }
-            return ans
-        }()
-        lis[pos] = v
-    }
+      }
+      return ans
+    }()
+
+    lis[pos] = v
+  }
 }
 ```
 
 ## BIT(树状数组)
 
 ```go
-var sum [100009]int
+type BIT struct {
+    sum [100009]int
+}
 
 func lowbit(x int) int {
     return x&-x
 }
 
-func up(sum [100009]int, i, v int) {
+func (bit *BIT) up(i, v int) {
     for ;i<=100000; i+=lowbit(i) {
-        sum[i]+=v
+        bit.sum[i]+=v
     }
 }
 
-func get(sum [100009]int, i int) int {
+func (bit *BIT) get(i int) int {
     ans := 0
     for ; i>0; i-=lowbit(i) {
-        ans += sum[i]
+        ans += bit.sum[i]
     }
     return ans
 }
