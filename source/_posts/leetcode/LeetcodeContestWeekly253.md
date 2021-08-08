@@ -1,7 +1,7 @@
 ---
 title: "LeetCode 第253场周赛"
-çdate: 2021-08-08 11:31:33
-Updated: 2021-08-08 11:31:33
+date: 2021-08-08 11:31:33
+updated: 2021-08-08 11:31:33
 description: ["LeetCode 第253场周赛。。 翻车翻到姥姥家啊啊啊啊啊。"]
 toc: true
 author: tabris
@@ -33,7 +33,7 @@ public:
             ss += w;
             if(ss == s) return true;
         }
-        
+
         return false;
     }
 };
@@ -52,21 +52,21 @@ class Solution {
 public:
     int minStoneSum(vector<int>& piles, int k) {
         priority_queue<int> q;
-        
+
         int sum = 0;
         for(auto p: piles) {
            q.push(p);
             sum += p;
         }
-        
+
         for(int i=0; i<k && !q.empty(); i++) {
             int mx = q.top(); q.pop();
             sum -= mx/2;
             mx -= mx/2;
-            
+
             q.push(mx);
         }
-        
+
         return sum;
     }
 };
@@ -92,16 +92,16 @@ public:
             } else {
                 sum += 1;
             }
-            
+
             if(sum < 0) {
                 while(i<ln && s[ln] == ']') ln--;
                 swap(s[i], s[ln]);
                 sum += 2;
-                
+
                 ans ++;
             }
         }
-        
+
         return ans;
     }
 };
@@ -117,15 +117,15 @@ md, lis 写不明白了。。。
 func longestObstacleCourseAtEachPosition(obstacles []int) []int {
     // fmt.Println("---------------------------")
     ans := make([]int, 0)
-    
+
     // lis
     lis := make([]int, 0)
     for _, v := range obstacles {
         p := 0
-        
+
         if len(lis) == 0 || lis[len(lis)-1] <= v {
             lis = append(lis, v)
-            
+
             p = len(lis)
         } else {
             pos := func() int {
@@ -142,17 +142,16 @@ func longestObstacleCourseAtEachPosition(obstacles []int) []int {
             }()
 
             lis[pos] = v
-            
+
             p = pos + 1
         }
-        
+
         // fmt.Println(lis)
-        
+
         ans = append(ans, p)
     }
-    
-    
+
+
     return ans
 }
 ```
-

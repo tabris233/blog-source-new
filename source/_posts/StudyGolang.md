@@ -1,6 +1,7 @@
 ---
 title: StudyGolang
 date: 2019-11-08 15:33:11
+update: 2021-08-08 11:46:11
 description: ["Golang"]
 toc: true
 author: tabris

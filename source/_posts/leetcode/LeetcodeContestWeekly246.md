@@ -1,7 +1,7 @@
 ---
 title: "LeetCode 第246场周赛"
-çdate: 2021-06-27 15:26:33
-Updated: 2021-06-27 15:26:33
+date: 2021-06-27 15:26:33
+updated: 2021-06-27 15:26:33
 description: ["LeetCode 第246场周赛。。 虚拟"]
 toc: true
 author: tabris
@@ -18,7 +18,7 @@ tags:
 
 ![image-20210627151634551](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/27/20210627151634.png)
 
->   这场是虚拟的，还是在床上躺着优哉游哉的打的，，成绩居然还可以？ 
+>   这场是虚拟的，还是在床上躺着优哉游哉的打的，，成绩居然还可以？
 >
 >   这是巧合还是，，，
 
@@ -29,7 +29,7 @@ tags:
 ```go
 func largestOddNumber(num string) string {
     ls := len(num)
-    
+
     end := -1
     for i:=ls-1; i>=0; i-- {
         if (int(num[i]) - int('0'))&1 == 1 {
@@ -37,7 +37,7 @@ func largestOddNumber(num string) string {
             break
         }
     }
-    
+
     return num[:end+1]
 }
 ```
@@ -61,22 +61,22 @@ public:
     int toIntTime(string s) {
         int ans = (s[0]-'0')*10+(s[1]-'0');
         ans = ans * 60 + (s[3]-'0')*10+(s[4]-'0');
-        
+
         return ans;
     }
 
     int numberOfRounds(string startTime, string finishTime) {
         int s = toIntTime(startTime);
         int e = toIntTime(finishTime);
-        
+
         printf("%d %d  <<-- \n", s, e);
         if(e < s) e += 24*60;
 
         s = (s+15-1)/15;
         e = e/15;
-        
+
         printf("%d %d\n", s, e);
-        
+
         return (e-s)>0?(e-s):0;
     }
 };
@@ -94,7 +94,7 @@ public:
 class Solution {
 public:
     int n, m;
-    
+
     int fx[4] = {0,0,1,-1};
     int fy[4] = {1,-1,0,0};
 
@@ -107,28 +107,28 @@ public:
         for(int i=0;i<4;i++) {
             xx = x + fx[i];
             yy = y + fy[i];
-            
+
             if(0 > xx || xx >= n) continue;
             if(0 > yy || yy >= m) continue;
             if(vis[xx][yy] || grid2[xx][yy] == 0) continue;
-            
+
             ans &= grid1[xx][yy];
             ans &= dfs(grid1, grid2, xx, yy);
         }
-        
+
         return ans;
     }
-    
+
     int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
         n = grid1.size(), m = grid1[0].size();
-        
+
         int ans = 0;
         for(int i=0;i<n;i++) for(int j=0;j<m;j++) {
             if(grid2[i][j] == 1 && grid1[i][j] == 1 && vis[i][j] == 0) {
                 ans += dfs(grid1, grid2, i, j);
             }
         }
-        
+
         return ans;
     }
 };
@@ -150,18 +150,18 @@ public:
 
     vector<int> minDifference(vector<int>& nums, vector<vector<int>>& queries) {
         n = nums.size();
-        
+
         for(int i=0; i<n; i++) {
             int a = nums[i];
             sum[a][i+1] ++;
-            
+
             for(int j=1;j<=100;j++) sum[j][i+1] += sum[j][i];
         }
-        
+
         vector<int> ans;
         for(auto q: queries) {
             int l = q[0]+1, r = q[1]+1;
-            
+
             int pre = -1;
             int ret = -1;
             for(int i=1; i<=100; i++) {
@@ -175,9 +175,8 @@ public:
             }
             ans.push_back(ret);
         }
-        
+
         return ans;
     }
 };
 ```
-

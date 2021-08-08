@@ -1,7 +1,7 @@
 ---
 title: "LeetCode 第247场周赛"
-çdate: 2021-06-27 12:55:17
-Updated: 2021-06-27 12:55:17
+date: 2021-06-27 12:55:17
+updated: 2021-06-27 12:55:17
 description: ["LeetCode 第247场周赛。。 再再再再再再再再次翻车"]
 toc: true
 author: tabris
@@ -31,9 +31,9 @@ class Solution {
 public:
     int maxProductDifference(vector<int>& nums) {
         int n = nums.size();
-        
+
         sort(nums.begin(), nums.end());
-        
+
         return nums[n-1]*nums[n-2] - nums[0]*nums[1];
     }
 };
@@ -51,10 +51,10 @@ public:
 class Solution {
 public:
     queue<int> ceng[55];
-    
+
     int vis[55][55];
     int n,m;
-    
+
     int fx[4] = {0,1,0,-1};
     int fy[4] = {1,0,-1,0};
     void dfs(vector<vector<int>>& grid, int x, int y, int direct, int c, int op) {
@@ -81,19 +81,19 @@ public:
             dfs(grid, xx, yy, i, c, op);
         }
     }
-    
+
     vector<vector<int>> rotateGrid(vector<vector<int>>& grid, int k) {
         n = grid.size(), m = grid[0].size();
         memset(vis, 0, sizeof(vis));
         dfs(grid, 0, 0, 0, 1, 0);
-        
+
         // for(int i=0;i<n;i++) {
         //     for(int j=0;j<n;j++) {
         //         printf("%d ", vis[i][j]);
         //     }
         //     puts("");
         // }
-        
+
         for(int i=1, tmp;i<=50; i++) {
             int l = ceng[i].size();
             if(l == 0) continue;
@@ -104,10 +104,10 @@ public:
                 ceng[i].push(tmp);
             }
         }
-        
+
         memset(vis, 0, sizeof(vis));
         dfs(grid, 0, 0, 0, 1, 1);
-        
+
         return grid;
     }
 };
@@ -148,9 +148,9 @@ public:
         for(int i=0;i<n;i++) a[i]=a[i]*a[i];
         UFWT(a,n);
     }
-    
+
     LL vis[1<<10];
-    
+
     long long wonderfulSubstrings(string word) {
         int ls = word.size();
 
@@ -161,15 +161,15 @@ public:
             cnt[i+1] = cnt[i] ^ (1<<(word[i]-'a'));
             vis[cnt[i+1]] ++;
         }
-        
+
         // FWT
         solve(vis, 1<<10);
-        
+
         LL ans = vis[0] - ls - 1;
         for(int i=0;i<10;i++) {
             ans += vis[1<<i];
         }
-        
+
         return ans/2;
     }
 };
@@ -218,7 +218,7 @@ public:
 
     static const int MOD = 1e9+7;
     static const int N   = 1e5+7;
-    
+
     // C(n, m)
     LL Fac[N],Inv[N];
     LL qmod(LL a,LL b){
@@ -233,20 +233,20 @@ public:
         Inv[N-1] = qmod(Fac[N-1], MOD-2);  //Fac[N]^{MOD-2}
         for (LL i = N - 2; i >= 0; i--) Inv[i] = Inv[i+1] * (i + 1) % MOD;
     }
-    
+
     vector<int> g[100005];
-    
+
     LL sz[1000005];
-    
+
     LL dfs(int u) {
         sz[u] = 1;
         LL sumu = 1, sumz;
         LL fz = 1;
         for(auto to: g[u]) {
             sumz = dfs(to);
-            
+
             sz[u] += sz[to];
-            
+
             sumu = sumu*sumz %MOD;
             fz = fz*Inv[sz[to]] %MOD;
         }
@@ -258,9 +258,8 @@ public:
         int n = prevRoom.size();
 
         for(int i=1; i<n; i++) g[prevRoom[i]].push_back(i);
-        
+
         return dfs(0);
     }
 };
 ```
-

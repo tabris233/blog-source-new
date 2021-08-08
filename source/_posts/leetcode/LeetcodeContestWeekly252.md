@@ -1,7 +1,7 @@
 ---
 title: "LeetCode 第252场周赛"
-çdate: 2021-08-01 11:57:58
-Updated: 2021-08-01 11:57:58
+date: 2021-08-01 11:57:58
+updated: 2021-08-01 11:57:58
 description: ["LeetCode 第252场周赛。。 做的有点慢"]
 toc: true
 author: tabris
@@ -27,11 +27,11 @@ class Solution {
 public:
     bool isThree(int n) {
         int ans = 0;
-        
+
         for(int i=1; i<=n; i++) {
             if (n%i == 0) ans ++;
         }
-        
+
         return ans == 3;
     }
 };
@@ -45,7 +45,7 @@ public:
 class Solution {
 public:
     typedef long long int LL;
-    
+
     long long numberOfWeeks(vector<int>& milestones) {
         LL sum = 0;
         int mx = 0;
@@ -53,13 +53,13 @@ public:
             sum += a;
             mx = max(mx, a);
         }
-        
+
         sum -= mx;
-        
+
         if(mx > sum + 1) {
             mx = sum + 1;
         }
-        
+
         return mx + sum;
     }
 };
@@ -74,10 +74,10 @@ class Solution {
 public:
     long long sum(long long x) {
         long long ans = (0+x)*(x+1)/2;
-        
+
         return ans * 4 * (x*2+1);
     }
-    
+
     long long minimumPerimeter(long long neededApples) {
         long long l = 1,r = 1e5,mid = -1, ans = 1 ;
         while(l<=r) {
@@ -89,7 +89,7 @@ public:
                 l = mid +1;
             }
         }
-        
+
         return ans * 8;
     }
 };
@@ -107,7 +107,7 @@ dp问题；$dp[1e5][3]$
 
 1.  $dp[i][j] = dp[i-1][j]$ $\ \ \ j \in \{0, 1,2\}, j != a$
 
-对于当前位置为a 
+对于当前位置为a
 
 2.  $dp[i][a] = dp[i-1][a]*2 + dp[i-1][a-1]$
 
@@ -118,7 +118,7 @@ class Solution {
 public:
     static const int N = 1e5+7;
     static const int MOD = 1e9+7;
-    
+
     long long dp[N][3];
 
     int countSpecialSubsequences(vector<int>& nums) {
@@ -128,13 +128,12 @@ public:
             ++i;
 
             for(int j=0; j<3; j++) dp[i][j] = dp[i-1][j];
-            
+
             dp[i][a] = dp[i-1][a]*2 + ((a==0)?1:dp[i-1][a-1]);
             dp[i][a] %= MOD;
         }
-        
+
         return dp[nums.size()][2];
     }
 };
 ```
-
