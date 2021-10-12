@@ -179,32 +179,76 @@ func groupThePeople(groupSizes []int) [][]int {
 ```go
 // 并查集
 type unionSet struct {
-    fa [100004]int
-    // length_ [100004]int
+    fa []int
+    // length_ []int
 }
 
 // func (u *unionSet) length(x int) int {
 // return u.length_[u.find(x)]
 // }
 
-func (u *unionSet) find(x int) int {
-    r := x
-    for r != u.fa[r] {
-        r = u.fa[r]
+func NewUnionSet(n int) unionSet {
+    fa := make([]int, n)
+    for i := range fa {
+        fa[i] = i
     }
-
-    i, j := x, r
-    for i!=j {
-        j = u.fa[i]
-        u.fa[i]=r
-        i=j
-    }
-
-    return r
+    // length_ := make([]int, n)
+    // for i := range length_ {
+    //     length_[i] = 1
+    // }
+    return unionSet{fa}
 }
 
-func (u *unionSet) join(x, y int) {
-    fx, fy := u.find(x), u.find(y)
+func (u *unionSet) Find(x int) int {
+    if x != u.fa[x] {
+        u.fa[x] = u.Find(u.fa[x])
+    }
+    return u.fa[x]
+}
+
+func (u *unionSet) Join(x, y int) {
+    fx, fy := u.Find(x), u.Find(y)
+
+    if fx != fy {
+        u.fa[fy]=fx
+        // if u.length(fx) > u.length(fy) {
+        //     u.fa[fy]=fx
+        // } else {
+        //     u.fa[fx]=fy
+        // }
+        // u.length_[fx], u.length_[fy] = u.length(fx) + u.length(fy), u.length(fx) + u.length(fy)
+    }
+}// 并查集
+type unionSet struct {
+    fa []int
+    // length_ []int
+}
+
+// func (u *unionSet) length(x int) int {
+// return u.length_[u.find(x)]
+// }
+
+func NewUnionSet(n int) unionSet {
+    fa := make([]int, n)
+    for i := range fa {
+        fa[i] = i
+    }
+    // length_ := make([]int, n)
+    // for i := range length_ {
+    //     length_[i] = 1
+    // }
+    return unionSet{fa}
+}
+
+func (u *unionSet) Find(x int) int {
+    if x != u.fa[x] {
+        u.fa[x] = u.Find(u.fa[x])
+    }
+    return u.fa[x]
+}
+
+func (u *unionSet) Join(x, y int) {
+    fx, fy := u.Find(x), u.Find(y)
 
     if fx != fy {
         u.fa[fy]=fx
