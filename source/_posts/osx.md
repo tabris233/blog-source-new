@@ -1,6 +1,7 @@
 ---
 title: 终于用上MBP了
 date: 2019-09-15 20:21:03
+updated: 2022-02-14 23:49:55
 description: ["公司给发了个MacBook Pro 然后就基本告别Manjaro了,这里介绍下使用osx的一些体验"]
 toc: true
 author: tabris
@@ -43,17 +44,26 @@ tags:
 > ```shell
 > defaults delete -g ApplePressAndHoldEnabled
 > ```
+> 安装`JetBrains Mono Nerd Font`字体
 >
+> ```shell
+> brew tap homebrew/cask-fonts
+> brew install font-jetbrains-mono-nerd-font
+> ```
 
 ## 软件篇
 
 ### GUI 软件
 
-**vscode**: 开源的编辑器, 体验很棒
+**[vscode](https://code.visualstudio.com/)**: 开源的编辑器, 体验很棒
 
-**Chrome**: 浏览器, 依赖于它的很多插件, 换不了,  太费内存了...
+> `brew install --cask visual-studio-code`
+
+**[Chrome](https://www.google.com/intl/zh-CN/chrome/)**: 浏览器, 依赖于它的很多插件, 换不了,  太费内存了...
 
 **[Typora](https://typora.io/)**: Markdown 编辑器, 单页 实时预览,很 nice
+
+> `brew install --cask typora`
 
 **onedrive**: 微软家的网盘, 跨平台同步的工具,
 
@@ -61,13 +71,23 @@ tags:
 
 **[Fliqlo](https://fliqlo.com/)**: 好看翻页时钟屏保。
 
+> `brew install --cask fliqlo`
+
 **[滴答清单](https://dida365.com/)**：TODO 类软件，全平台支持了，挺好用的。
+
+> `brew install --cask ticktick`
 
 **[SourceTree](https://www.sourcetreeapp.com/)**: 免费好用的git客户端软件。
 
+> `brew install --cask sourcetree`
+
 **[NetNewsWire](https://netnewswire.com/)**: RSS阅读器
 
+> `brew install --cask netnewswire`
+
 **[OBS](https://obsproject.com/zh-cn)**: 免费且开源的用于视频录制以及直播串流的软件。
+
+> `brew install --cask obs`
 
 ---
 
@@ -76,23 +96,33 @@ tags:
 
 **[iina](https://iina.io/)**: 看视频的软件,大多格式的都能放
 
+> `brew install --cask iina`
+
 **[itsycal](https://www.mowglii.com/itsycal/)**: 在 menu bar 上的时间点一下会出现日历
+
+> `brew install --cask itsycal`
 
 **[utools](https://u.tools/)**: 一款跨平台的启动器，插件免费，更加简单易用。
 
-**cakebrew**: homebrew 的可视化版, 还挺好用, 但是有的软件找不到..
+> `brew install --cask utools`
+
+~~**[cakebrew](https://www.cakebrew.com/)**: homebrew 的可视化版, 还挺好用, 但是有的软件找不到..~~
 
 **[karabiner](https://karabiner-elements.pqrs.org/)**: 键盘映射工具
 
-**keycastr**:显示键盘按键的软件
+> `brew install --cask karabiner-elements`
 
-**GetPlainText**: 复制时删除样式.
+**[keycastr](https://github.com/keycastr/keycastr)**:显示键盘按键的软件
 
-**bartender 4**: 整理 menu bar 的工具.
+> `brew install --cask keycastr`
+
+**[GetPlainText](https://apps.apple.com/us/app/get-plain-text/id508368068)**: 复制时删除样式.
+
+**[bartender 4](https://www.macbartender.com/Bartender4/)**: 整理 menu bar 的工具.
 
 **[Lemon](https://lemon.qq.com/)**: 柠檬清理.
 
-**SwitchResX**: 快速修改屏幕分辨率的 Mac 软件
+**[SwitchResX](https://www.madrau.com/srx_download/download.html)**: 快速修改屏幕分辨率的 Mac 软件
 
 **[Better And Better 2.0](https://www.better365.cn/bab2.html)**: Better And Better 2.0 将强大功能与优秀人机交互结合提升到一个崭新的高度。全面提升 Mac 触控板、鼠标、键盘使用，数百种动作手势、绘图手势与预设、脚本、快捷键完美协作，为你带来无与伦比的 Mac 操作体验。
 
@@ -107,15 +137,23 @@ tags:
 
 **[rectangle](https://rectangleapp.com/)**: 桌面窗口管理。
 
-**[copyless 2](https://copyless.net/)**: 剪贴板管理器. 最多可以存储 1000 个最新剪辑
+> `brew install --cask rectangle`
+
+~~**[copyless 2](https://copyless.net/)**: 剪贴板管理器. 最多可以存储 1000 个最新剪辑~~
 
 **[Mos](https://github.com/Caldis/Mos)**: 一个用于在 MacOS 上平滑你的鼠标滚动效果的小工具, 让你的滚轮爽如触控板。
+
+> `brew install --cask mos`
 
 **[Amphetamine](https://apps.apple.com/cn/app/amphetamine/id937984704?mt=12)**: 防睡眠软件。
 
 **[TopNotch](https://topnotch.app/)**: 针对2021款MBP隐藏刘海的软件。
 
+> `brew install --cask topnotch`
+
 **[Parallels Desktop](https://www.parallels.cn/)**: Mac 上的虚拟机软件
+
+> `brew install --cask parallels`
 
 **[PD Runner](https://github.com/lihaoyun6/PD-Runner)**: 适用于Parallels Desktop的启动器, 可无视试用期限强制启动客户机
 
@@ -123,24 +161,50 @@ tags:
 
 ### Terminal 软件
 
+**[homebrew](https://brew.sh/index_zh-cn)**: mac 的软件包管理器, 一般好用吧, 用过 pacman 感觉其他的都不太行
+
+> `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+**[alacritty](https://github.com/alacritty/alacritty/)**: 跨平台、高性能的终端模拟器。vim下大文件体验很棒。
+
+> `brew install --cask alacritty`
+
 **[iTerm2](https://iterm2.com/)**: mac 下的终端模拟软件,**其实是 GUI 软件的,故意放在这里**
+
+> `brew install --cask iterm2`
 
 ~~**thefuck**: 帮忙修正手误导致的错误命令~~
 
+> `brew install thefuck`
+
 **tmux**: 终端复用工具,
+
+> `brew install tmux`
 
 **neovim**: 从 VIM 上 fork 来的, (没怎么用过 vim, 无法做出比较,
 
+> `brew install neovim`
+
 **ranger**: 终端下的文件管理器,配置后能预览图片,显示压缩文件信息等, 加上类 vi 的操作方式,很奈斯
 
-]**[homebrew](https://brew.sh/index_zh-cn)**: mac 的软件包管理器, 一般好用吧, 用过 pacman 感觉其他的都不太行
+> `brew install ranger` or `pip3 install ranger-fm`
 
 **docker**: mac 的 docker 感觉和 Linux 的不太一样 会有个应用程序在启动器里面..
 
+> `brew install docker`
+
 **ripgrep**: 搜索工具, 快
+
+> `brew install ripgrep`
 
 **lsd**: ls 的替代品, rust 写的 好看又快
 
+> `brew install lsd`
+
 **whistle**: 代理配置软件
 
+> `brew install whistle` or `npm install -g whistle`
+
 **mycli**: 好用的 MySQL 客户端
+
+> `brew install mycli` or `pip3 install mycli`
