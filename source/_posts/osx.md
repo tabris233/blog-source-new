@@ -1,7 +1,7 @@
 ---
 title: 终于用上MBP了
 date: 2019-09-15 20:21:03
-updated: 2022-02-14 23:49:55
+updated: 2022-02-20 22:43:07
 description: ["公司给发了个MacBook Pro 然后就基本告别Manjaro了,这里介绍下使用osx的一些体验"]
 toc: true
 author: tabris
@@ -29,6 +29,29 @@ tags:
 > 这里介绍下使用 osx 的一些体验
 >
 
+## 安装包管理器
+
+### **[homebrew](https://brew.sh/index_zh-cn)**
+
+ mac 的软件包管理器, 一般好用吧, 用过 pacman 感觉其他的都不太行
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+```shell
+# 换清华源 https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+for tap in core cask{,-fonts,-drivers,-versions} command-not-found; do
+    brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-${tap}.git"
+done
+brew update
+```
+
+### 基础配置
+
+#### 键盘重复按键
+
 > [Mac tips - 打开【键盘重复按键】功能](https://blog.csdn.net/huhuijun123/article/details/84815267)
 >
 > 很多 App 在 Mac 下长按某个键时只会触发一次。 比如在 Sublime Text 下， 用 VIM 模式来 操作时， 长按 「J」 时， 只会按下跳一行。 但是奇怪开了中文输入法后又可以一直往下跳。
@@ -44,6 +67,9 @@ tags:
 > ```shell
 > defaults delete -g ApplePressAndHoldEnabled
 > ```
+
+#### 字体
+
 > 安装`JetBrains Mono Nerd Font`字体
 >
 > ```shell
@@ -128,8 +154,11 @@ tags:
 
 **[超级右键](https://www.better365.cn/irightmouse.html)**: 超级右键以优秀设计与丰富功能为 Mac 带来绝佳的使用体验，众多功能与右键融为一体，深得人心的设计，让你即刻进入高效的 Mac 使用体验，快、高效、便捷，效果出奇的好
 
-**[ishot](https://www.better365.cn/ishot.html)**: iShot 堪称 macOS 上功能最为全面的截图、录屏工具，
-截图、长截图、多窗口截图、延时截图、标注、贴图、取色、录屏......
+~~**[ishot](https://www.better365.cn/ishot.html)**: iShot 堪称 macOS 上功能最为全面的截图、录屏工具，截图、长截图、多窗口截图、延时截图、标注、贴图、取色、录屏......~~
+
+**[snipaste](https://snipaste.com/)**: 开源的多平台截图软件。
+
+> `brew install snipaste`
 
 **[自动切换输入法](https://www.better365.cn/AutoSwitchInput.html)**: 在自动切换输入法内，提前设置每个 App 对应的输入法，切换至该 App 时，将为您自动切换至为他设定好的输入法。
 
@@ -147,15 +176,23 @@ tags:
 
 **[Amphetamine](https://apps.apple.com/cn/app/amphetamine/id937984704?mt=12)**: 防睡眠软件。
 
-**[TopNotch](https://topnotch.app/)**: 针对2021款MBP隐藏刘海的软件。
+~~**[TopNotch](https://topnotch.app/)**: 针对2021款MBP隐藏刘海的软件。> `brew install --cask topnotch`~~
 
-> `brew install --cask topnotch`
+**[Only Switch](https://jacklandrin.github.io/macos%20app/2021/12/01/onlyswitch.html)**: OnlySwitch 是一个菜单栏的工具箱，提供很多快捷的功能，例如隐藏桌面图标，黑暗模式和隐藏新 Mackbook Pro 的丑陋缺口。开关显示在您的状态栏上。目前支持以下功能：隐藏桌面 黑暗模式 屏幕保护程序 自动隐藏Dock Airpods 蓝牙 Xcode 缓存 自动隐藏菜单栏 显示隐藏文件 广播电台 保持清醒 清空垃圾桶 清空粘贴板 静音 隐藏留海等。
+
+> `brew install only-switch`
 
 **[Parallels Desktop](https://www.parallels.cn/)**: Mac 上的虚拟机软件
 
 > `brew install --cask parallels`
 
 **[PD Runner](https://github.com/lihaoyun6/PD-Runner)**: 适用于Parallels Desktop的启动器, 可无视试用期限强制启动客户机
+
+> ~~`brew install pd-runner`~~
+>
+> github 已经被封了，brew 安装不了。 点击[这个](https://github.com/lihaoyun6/BigSur-icons/files/7968303/pdlatest.zip)下载吧
+> 来源：[https://github.com/lihaoyun6/BigSur-icons/issues/6#issuecomment-1025392331](https://github.com/lihaoyun6/BigSur-icons/issues/6#issuecomment-1025392331)
+
 
 ---
 
@@ -164,6 +201,15 @@ tags:
 **[homebrew](https://brew.sh/index_zh-cn)**: mac 的软件包管理器, 一般好用吧, 用过 pacman 感觉其他的都不太行
 
 > `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+```shell
+# 换清华源 https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+for tap in core cask{,-fonts,-drivers,-versions} command-not-found; do
+    brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-${tap}.git"
+done
+brew update
+```
 
 **[alacritty](https://github.com/alacritty/alacritty/)**: 跨平台、高性能的终端模拟器。vim下大文件体验很棒。
 
