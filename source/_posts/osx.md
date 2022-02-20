@@ -35,11 +35,11 @@ tags:
 
  mac 的软件包管理器, 一般好用吧, 用过 pacman 感觉其他的都不太行
 
-```shell
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-```shell
+```bash
 # 换清华源 https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 for tap in core cask{,-fonts,-drivers,-versions} command-not-found; do
@@ -57,14 +57,14 @@ brew update
 > 很多 App 在 Mac 下长按某个键时只会触发一次。 比如在 Sublime Text 下， 用 VIM 模式来 操作时， 长按 「J」 时， 只会按下跳一行。 但是奇怪开了中文输入法后又可以一直往下跳。
 > 其实我们是可以用下面的命令来重新默认打开这个功能。
 >
-> ```shell
+> ```bash
 > defaults write -g ApplePressAndHoldEnabled -bool false
 > ```
 >
 > 注销并重新登录系统使其更改生效。
 > 如果需要恢复长按键盘可以重音字符或非英文字符的功能，请打开终端窗口，运行以下命令：
 >
-> ```shell
+> ```bash
 > defaults delete -g ApplePressAndHoldEnabled
 > ```
 
@@ -72,7 +72,7 @@ brew update
 
 > 安装`JetBrains Mono Nerd Font`字体
 >
-> ```shell
+> ```bash
 > brew tap homebrew/cask-fonts
 > brew install font-jetbrains-mono-nerd-font
 > ```
@@ -202,7 +202,7 @@ brew update
 
 > `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-```shell
+```bash
 # 换清华源 https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 for tap in core cask{,-fonts,-drivers,-versions} command-not-found; do
