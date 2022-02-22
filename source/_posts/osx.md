@@ -254,3 +254,14 @@ brew update
 **mycli**: 好用的 MySQL 客户端
 
 > `brew install mycli` or `pip3 install mycli`
+
+
+### 其他配置
+
+#### 快速查看(空格一键预览)
+
+Quick Look 是 macOS 最方便的功能之一，因为它可以从任何 Finder 窗口立即访问。 只需点击空格键，您就会立即看到当前选择的任何文件的大预览。
+
+> [macOS 快速预览与插件马克 - 乌图米的文章 - 知乎](https://zhuanlan.zhihu.com/p/105834572)
+
+> `brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook qlvideo provisionql quicklookapk --cask`
