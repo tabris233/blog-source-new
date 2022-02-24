@@ -87,6 +87,8 @@ brew update
 
 **[Chrome](https://www.google.com/intl/zh-CN/chrome/)**: 浏览器, 依赖于它的很多插件, 换不了,  太费内存了...
 
+> 还需要装很多插件，TODO
+
 **[Typora](https://typora.io/)**: Markdown 编辑器, 单页 实时预览,很 nice
 
 > `brew install --cask typora`
@@ -131,6 +133,8 @@ brew update
 **[utools](https://u.tools/)**: 一款跨平台的启动器，插件免费，更加简单易用。
 
 > `brew install --cask utools`
+
+> 还需要装很多插件，TODO
 
 ~~**[cakebrew](https://www.cakebrew.com/)**: homebrew 的可视化版, 还挺好用, 但是有的软件找不到..~~
 
@@ -265,3 +269,13 @@ Quick Look 是 macOS 最方便的功能之一，因为它可以从任何 Finder 
 > [macOS 快速预览与插件马克 - 乌图米的文章 - 知乎](https://zhuanlan.zhihu.com/p/105834572)
 
 > `brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook qlvideo provisionql quicklookapk --cask`
+
+#### 输入法
+
+[鼠须管](https://rime.im/)是一款 macOS 下的开源输入法，支持拼音、注音、仓颉、五笔等输入方案，它底层是 RIME/中州韵输入法引擎，被誉为神级输入法。
+
+经过配置之后 会很好用
+
+[鼠须管输入法介绍 - 纤夫张的文章 - 知乎](https://zhuanlan.zhihu.com/p/82476313)
+
+> `brew install squirrel --cask`
