@@ -231,6 +231,8 @@ brew update
 
 > `brew install tmux`
 
+> [很棒的tmux配置](https://github.com/gpakosz/.tmux)
+
 **neovim**: 从 VIM 上 fork 来的, (没怎么用过 vim, 无法做出比较,
 
 > `brew install neovim`
@@ -279,3 +281,9 @@ Quick Look 是 macOS 最方便的功能之一，因为它可以从任何 Finder 
 [鼠须管输入法介绍 - 纤夫张的文章 - 知乎](https://zhuanlan.zhihu.com/p/82476313)
 
 > `brew install squirrel --cask`
+
+> 我用的配置
+> 1. [ssnhd/rime-Rime Squirrel 鼠须管配置文件（朙月拼音、小鹤双拼、自然码双拼）](https://github.com/ssnhd/rime)
+> 2. [禁用 Squirrel 英文模式，使用左侧 Shift 切换中英](https://github.com/rime/squirrel/wiki/%E7%A6%81%E7%94%A8-Squirrel-%E8%8B%B1%E6%96%87%E6%A8%A1%E5%BC%8F%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%B7%A6%E4%BE%A7-Shift-%E5%88%87%E6%8D%A2%E4%B8%AD%E8%8B%B1)
+> 我是在1的基础上参考2禁用了英文模式.
+> > 用了自动切换输入法的功能, 英文用自带的输入既可. 鼠须管只用做中文输入.
