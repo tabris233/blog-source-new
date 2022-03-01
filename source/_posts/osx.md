@@ -287,3 +287,33 @@ Quick Look 是 macOS 最方便的功能之一，因为它可以从任何 Finder 
 > 2. [禁用 Squirrel 英文模式，使用左侧 Shift 切换中英](https://github.com/rime/squirrel/wiki/%E7%A6%81%E7%94%A8-Squirrel-%E8%8B%B1%E6%96%87%E6%A8%A1%E5%BC%8F%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%B7%A6%E4%BE%A7-Shift-%E5%88%87%E6%8D%A2%E4%B8%AD%E8%8B%B1)
 > 我是在1的基础上参考2禁用了英文模式.
 > > 用了自动切换输入法的功能, 英文用自带的输入既可. 鼠须管只用做中文输入.
+
+
+#### 系统设置
+
+##### 命令设置
+
+> https://blog.csdn.net/lovechris00/article/details/113280758
+> https://macos-defaults.com/
+> https://github.com/kevinSuttle/macOS-Defaults <- 这个最全。
+
+```bash
+# Finder 的退出按钮
+defaults write com.apple.finder "QuitMenuItem" -bool "true" && killall Finder
+
+
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# 显示隐藏文件
+defaults write com.apple.Finder AppleShowAllFiles -bool true
+ && killall Finder
+
+# 菜单栏(menu bar) 时间格式调整成 3月1日 周二 18:00:00
+# defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\""
+
+#  改变登陆背景
+# 引号里边是图片路径
+defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture "/Users/dongquan/Pictures/桌面壁纸.jpeg"`
+
+
+```
