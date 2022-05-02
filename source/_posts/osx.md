@@ -87,6 +87,7 @@ brew update
 
 **[Chrome](https://www.google.com/intl/zh-CN/chrome/)**: 浏览器, 依赖于它的很多插件, 换不了,  太费内存了...
 
+> `brew install google-chrome`
 > 还需要装很多插件，TODO
 
 **[Typora](https://typora.io/)**: Markdown 编辑器, 单页 实时预览,很 nice
@@ -150,9 +151,15 @@ brew update
 
 **[bartender 4](https://www.macbartender.com/Bartender4/)**: 整理 menu bar 的工具.
 
+> `brew install bartender --cask`
+
 **[Lemon](https://lemon.qq.com/)**: 柠檬清理.
 
+> `brew install tencent-lemon --cask`
+
 **[SwitchResX](https://www.madrau.com/srx_download/download.html)**: 快速修改屏幕分辨率的 Mac 软件
+
+> `brew install switchresx`
 
 **[Better And Better 2.0](https://www.better365.cn/bab2.html)**: Better And Better 2.0 将强大功能与优秀人机交互结合提升到一个崭新的高度。全面提升 Mac 触控板、鼠标、键盘使用，数百种动作手势、绘图手势与预设、脚本、快捷键完美协作，为你带来无与伦比的 Mac 操作体验。
 
