@@ -1,7 +1,7 @@
 ---
 title: 终于用上MBP了
 date: 2019-09-15 20:21:03
-updated: 2022-02-20 22:43:07
+updated: 2022-05-02 14:54:11
 description: ["公司给发了个MacBook Pro 然后就基本告别Manjaro了,这里介绍下使用osx的一些体验"]
 toc: true
 author: tabris
