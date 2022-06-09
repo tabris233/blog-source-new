@@ -5,7 +5,7 @@ updated: 2021-06-27 15:26:33
 description: ["LeetCode 第246场周赛。。 虚拟"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
 katex: true
 summary:
 categories:
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-![image-20210627151634551](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/27/20210627151634.png)
+![image-20210627151634551](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/27/20210627151634.png)
 
 >   这场是虚拟的，还是在床上躺着优哉游哉的打的，，成绩居然还可以？
 >

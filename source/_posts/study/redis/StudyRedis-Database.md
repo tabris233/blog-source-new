@@ -33,7 +33,7 @@ struct redisServer {
 
 >   说起来，四五百行的结构体，真是活久见啊。。。。
 >
->   <img src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/31/20210531235652.png" alt="image-20210531235648083" style="zoom: 67%;" />
+>   <img src="https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/31/20210531235652.png" alt="image-20210531235648083" style="zoom: 67%;" />
 
 在初始化服务器时，程序会根据服务器状态的dbnum属性来决定创建多少个数据库：
 
@@ -131,7 +131,7 @@ typedef struct redisDb{
 
 如下图所示：
 
-<img src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/05/20210605225852.jpeg" alt="img" style="zoom: 67%;" />
+<img src="https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/05/20210605225852.jpeg" alt="img" style="zoom: 67%;" />
 
 而Redis中添加心焦也一样是在操作`redisDb`中的`dict`成员，支持基本dict操作，同时可以对其中每个键值的增删改查。
 

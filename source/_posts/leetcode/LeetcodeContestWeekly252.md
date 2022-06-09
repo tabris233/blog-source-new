@@ -5,7 +5,7 @@ updated: 2021-08-01 11:57:58
 description: ["LeetCode 第252场周赛。。 做的有点慢"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/01/20210801111711.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/01/20210801111711.png
 katex: true
 summary:
 categories:
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-![image-20210801111711882](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/01/20210801111711.png)
+![image-20210801111711882](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/01/20210801111711.png)
 
 # [5830. 三除数](https://leetcode-cn.com/contest/weekly-contest-252/problems/three-divisors/)
 

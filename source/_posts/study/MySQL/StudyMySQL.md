@@ -36,7 +36,7 @@ tags:
 
 -   SELECT 语句的执行过程。
 
-![0d2070e8f84c4801adbfa03bda1f98d9](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/11/20211011220109.png)
+![0d2070e8f84c4801adbfa03bda1f98d9](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/11/20211011220109.png)
 
 1.   MySQL 的框架有几个组件，各是什么作用？
 
@@ -73,13 +73,13 @@ tags:
 
 更新操作首先要把旧的数据查询出来，所以根据WHERE条件走一遍SELECT的过程，
 
-![0d2070e8f84c4801adbfa03bda1f98d9](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/11/20211011222209.png)
+![0d2070e8f84c4801adbfa03bda1f98d9](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/11/20211011222209.png)
 
 查出来之后更新就好了。本身是一个事物操作。
 
 但是为了保证MySQL的crash-safe，引入了redo log，redo log 和 bin log一起组成两阶段提交机制。
 
-![2e5bff4910ec189fe1ee6e2ecc7b4bbe](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/11/20211011222248.png)
+![2e5bff4910ec189fe1ee6e2ecc7b4bbe](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/11/20211011222248.png)
 
 带着大佬总结的问题记笔记。
 
@@ -197,7 +197,7 @@ ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致�
 
 更新操作会在回滚日志记一条回滚操作，众多记录构成不同的read-view。假设一个值从1被按顺序改成了2、3、4，在回滚日志里面就会有类似下面的记录。
 
-![d9c313809e5ac148fc39feff532f0fee](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/12/20211012004436.png)
+![d9c313809e5ac148fc39feff532f0fee](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/12/20211012004436.png)
 
 每个事物查询的时候都会到根据该事物启动的时刻读取当时时刻的read-view。
 
@@ -460,7 +460,7 @@ innoDB行锁是通过锁索引记录实现的，如果更新的列没建索引�
 
 这个视图数组和高水位，就组成了当前事物的一致性视图（read-view）
 
-![image-20211014005954382](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/14/20211014005954.png)
+![image-20211014005954382](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/10/14/20211014005954.png)
 
 对于一个数据版本的row trx_id 
 

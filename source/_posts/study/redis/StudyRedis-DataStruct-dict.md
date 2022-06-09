@@ -124,7 +124,7 @@ typedef struct dictType {
 
 下图是一个完整的字典结构（普通状态下，没有进行rehash）：
 
-![](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/01/20210501184352.png)
+![](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/01/20210501184352.png)
 
 ## hash 算法
 
@@ -144,11 +144,11 @@ TODO 这个感觉也没啥好说的，太基础了。
 
         以下图为例， 当字典使用率过低时，会进行缩容。按照used个数确定合适的容量生成一个新的。这时候将旧的哈希表（h[0]）中的数据重新hash放到新的哈希表中（h[1]）。
 
-![](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/01/20210501184231.jpeg)
+![](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/01/20210501184231.jpeg)
 
         同理当容量不足的时候，字典会进行扩容。容量大小会翻一倍（乘2）。也是一样生成一个新的。把旧的哈希表（h[0]）中的数据重新hash放到新的哈希表中（h[1]）。
 
-![IMG_E3060FCFC999-1.jpeg](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/01/20210501222136.jpeg)
+![IMG_E3060FCFC999-1.jpeg](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/01/20210501222136.jpeg)
 
         ⚠️注意， 如上图所示，当给一个容量为4的哈希表添加键值对，然后再删一个，然后再添加一个。。。这样重复的删除再添加。 会一直rehash下去，每次都要进行大量的内存操作和数据结构的维护处理，想想Redis本身单进程的，这得慢成什么样子。 所以 Redis 在处理扩容缩容时有这样的策略：
 

@@ -5,7 +5,7 @@ updated: 2021-06-27 12:55:17
 description: ["LeetCode 第247场周赛。。 再再再再再再再再次翻车"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
 katex: true
 summary:
 categories:
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-![image-20210627125617729](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/27/20210627125617.png)
+![image-20210627125617729](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/27/20210627125617.png)
 
 >   彻底翻车，，，，，
 >

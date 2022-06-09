@@ -4,7 +4,7 @@ date: 2021-05-16 12:00:00
 description: ["LeetCode 第241场周赛。。 菜死了啊"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516113536.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516113536.png
 # 如果top值为true,则会是首页推荐文章
 top: false
 # 如果要对文章设置阅读验证密码的话,就可以在设置password的值,该值必须是用SHA256加密后的密码,防止被他人识破
@@ -19,7 +19,7 @@ tags:
     - 双周赛
 ---
 
-![image-20210516113536256](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516113536.png)
+![image-20210516113536256](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516113536.png)
 
 GG
 

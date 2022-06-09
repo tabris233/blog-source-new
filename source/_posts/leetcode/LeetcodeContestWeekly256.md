@@ -5,7 +5,7 @@ updated: 2021-08-29 11:41:28
 description: ["LeetCode 第256场周赛。。 "]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/29/20210829114205.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/29/20210829114205.png
 katex: true
 summary:
 categories:
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-![image-20210829114205849](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/29/20210829114205.png)
+![image-20210829114205849](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/29/20210829114205.png)
 
 
 

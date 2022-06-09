@@ -5,7 +5,7 @@ updated: 2021-08-08 11:31:33
 description: ["LeetCode 第253场周赛。。 翻车翻到姥姥家啊啊啊啊啊。"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/08/20210808112249.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/08/20210808112249.png
 katex: true
 summary:
 categories:
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-![image-20210808112249489](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/08/20210808112249.png)
+![image-20210808112249489](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/08/08/20210808112249.png)
 
 # [5838. 检查字符串是否为数组前缀](https://leetcode-cn.com/contest/weekly-contest-253/problems/check-if-string-is-a-prefix-of-array/)
 

@@ -117,25 +117,25 @@ typedef struct intset {
 
 举个例子，最开始的一个整数集合为
 
-![image-20210522193314271](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522193314.png)
+![image-20210522193314271](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522193314.png)
 
 目前只需要 `int16_t` 就可以存下了。对应的表示为。
 
-![image-20210522193403366](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522193403.png)
+![image-20210522193403366](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522193403.png)
 
 现在要将65535 加入集合，显然`int64_t` 不够用了，需要`int32_t`来存储，这是需要申请新的内存为`sizeof(int32_t) * 4` = 128位，于是重新分配的内存如下
 
-![image-20210522193609210](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194353.png)
+![image-20210522193609210](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194353.png)
 
  然后开始逐渐从后至前转换每一个元素。
 
-![image-20210522194813874](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194813.png)
+![image-20210522194813874](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194813.png)
 
-![image-20210522194841128](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194841.png)
+![image-20210522194841128](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194841.png)
 
-![image-20210522194857158](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194857.png)
+![image-20210522194857158](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194857.png)
 
-![image-20210522194936185](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194936.png)
+![image-20210522194936185](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522194936.png)
 
 就这样完成了升级的过程。
 

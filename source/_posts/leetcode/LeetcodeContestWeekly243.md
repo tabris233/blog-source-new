@@ -4,7 +4,7 @@ date: 2021-05-30 12:33:00
 description: ["LeetCode 第243场周赛。。 再次翻车"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
 katex: true
 summary:
 categories:
@@ -21,7 +21,7 @@ tags:
 >
 >    第三个纯属自己代码写的太丑了，脑子不够清晰吧。赛后1分钟ac。。。
 
-![image-20210530121215404](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png)
+![image-20210530121215404](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png)
 
 # [5772. 检查某单词是否等于两单词之和](https://leetcode-cn.com/contest/weekly-contest-243/problems/check-if-word-equals-summation-of-two-words/)
 

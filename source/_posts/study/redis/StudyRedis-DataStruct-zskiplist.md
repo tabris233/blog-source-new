@@ -36,7 +36,7 @@ tags:
 
 跳表既然是叫什么什么表，那么本质上还是链表。下面先看一下普通单链表的结构：
 
-![image-20210522161324875](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522161324.png)
+![image-20210522161324875](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522161324.png)
 
 <details><summary>图片graphviz源码 展开/收起</summary>
 ```graphviz
@@ -66,7 +66,7 @@ digraph link {
 
 众所周知，利用有序这个单调性是可以二分的，因此可以优化查找操作。二分需要不断的折半，也就是找当前操作区间的正中间的元素，递归下去直到这个区间长度变为1。其实二叉查找树（BST，Binary Search Tree）就是这么玩儿的。像下图这样：
 
-![image-20210522161353852](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522161353.png)
+![image-20210522161353852](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522161353.png)
 
 <details><summary>图片graphviz源码 展开/收起</summary>
 ```graphviz
@@ -85,7 +85,7 @@ digraph G{
 
 但办法还是有的，上图是一个无重复结点的二叉查找树。稍微换个样子就可以了。如下图：
 
-![image-20210522163416195](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522163416.png)
+![image-20210522163416195](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/22/20210522163416.png)
 
 <details><summary>图片graphviz源码 展开/收起</summary>
 ```graphviz

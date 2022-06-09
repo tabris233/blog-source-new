@@ -4,7 +4,7 @@ date: 2021-06-06 12:47:24
 description: ["LeetCode 第244场周赛。。 再再再再再再再再次翻车"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/30/20210530121215.png
 katex: true
 summary:
 categories:
@@ -23,7 +23,7 @@ tags:
 >
 >    思维又慢，码得又慢，没救了。
 
-![image-20210606122647168](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/06/20210606122647.png)
+![image-20210606122647168](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/06/06/20210606122647.png)
 
 # [5776. 判断矩阵经轮转后是否一致](https://leetcode-cn.com/contest/weekly-contest-244/problems/determine-whether-matrix-can-be-obtained-by-rotation/)
 

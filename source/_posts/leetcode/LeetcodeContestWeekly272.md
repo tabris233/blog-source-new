@@ -5,7 +5,7 @@ updated: 2021-12-19 11:40:23
 description: ["LeetCode 第272场周赛。纯手速场，我中间还蹲了个大号。。"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo20211219110235.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo20211219110235.png
 katex: true
 summary:
 categories:
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-![image-20210829114205849](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo20211219110235.png)
+![image-20210829114205849](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo20211219110235.png)
 
 
 

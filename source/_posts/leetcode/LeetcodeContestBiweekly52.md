@@ -5,7 +5,7 @@ description: ["LeetCode 第52场双周赛。。 菜死了啊"]
 toc: true
 author: tabris
 # 图片推荐使用图床(腾讯云、七牛云、又拍云等)来做图片的路径.如:http://xxx.com/xxx.jpg
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516114449.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516114449.png
 # 如果top值为true,则会是首页推荐文章
 top: false
 # 如果要对文章设置阅读验证密码的话,就可以在设置password的值,该值必须是用SHA256加密后的密码,防止被他人识破
@@ -20,7 +20,7 @@ tags:
     - 双周赛
 ---
 
-![image-20210516114449615](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516114449.png)
+![image-20210516114449615](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516114449.png)
 
 GG
 

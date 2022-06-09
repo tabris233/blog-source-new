@@ -770,7 +770,7 @@ typedef struct zset {
 
 下图展示了这一类型检查过程。
 
-<img src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/29/20210529213124.png" alt="image-20210529213124492" style="zoom:50%;" />
+<img src="https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/29/20210529213124.png" alt="image-20210529213124492" style="zoom:50%;" />
 
 其他类型特定命令的类型检查过程也和这里展示的 `LLEN` 命令的类型检查过程类似。
 
@@ -791,7 +791,7 @@ Redis 除了会根据值对象的类型来判断键是否能够执行指定命�
 
 下图展示了 LLEN 命令从类型检查到根据编码选择实现函数的整个执行过程， 其他类型特定命令的执行过程也是类似的。
 
-<img src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/29/20210529213308.png" alt="image-20210529213308665" style="zoom:50%;" />
+<img src="https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/29/20210529213308.png" alt="image-20210529213308665" style="zoom:50%;" />
 
 实际上， 我们可以将 DEL 、 EXPIRE 、 TYPE 等命令也称为多态命令， 因为无论输入的键是什么类型， 这些命令都可以正确地执行。
 

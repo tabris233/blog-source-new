@@ -4,7 +4,7 @@ date: 2021-05-23 12:54:04
 description: ["LeetCode 第242场周赛。。 彻底翻车"]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516113536.png
+img: https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/16/20210516113536.png
 katex: true
 summary:
 categories:
@@ -20,7 +20,7 @@ tags:
 >
 >   找个理由强行解释下，可能是没睡好hhh。
 
-![image-20210523122642357](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/23/20210523122642.png)
+![image-20210523122642357](https://fastly.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/2021/05/23/20210523122642.png)
 
 # [5763 哪种连续子字符串更长](https://leetcode-cn.com/problems/longer-contiguous-segments-of-ones-than-zeros/)
 
