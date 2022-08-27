@@ -189,7 +189,7 @@ brew update
 
 ~~**[TopNotch](https://topnotch.app/)**: 针对2021款MBP隐藏刘海的软件。> `brew install --cask topnotch`~~
 
-**[Only Switch](https://jacklandrin.github.io/macos%20app/2021/12/01/onlyswitch.html)**: OnlySwitch 是一个菜单栏的工具箱，提供很多快捷的功能，例如隐藏桌面图标，黑暗模式和隐藏新 Mackbook Pro 的丑陋缺口。开关显示在您的状态栏上。目前支持以下功能：隐藏桌面 黑暗模式 屏幕保护程序 自动隐藏Dock Airpods 蓝牙 Xcode 缓存 自动隐藏菜单栏 显示隐藏文件 广播电台 保持清醒 清空垃圾桶 清空粘贴板 静音 隐藏留海等。
+**[Only Switch](https://jacklandrin.github.io/macos%20app/2021/12/01/onlyswitch.html)**: OnlySwitch 是一个菜单栏的工具箱，提供很多快捷的功能，例如隐藏桌面图标，黑暗模式和隐藏新 MacBook Pro 的丑陋缺口。开关显示在您的状态栏上。目前支持以下功能：隐藏桌面 黑暗模式 屏幕保护程序 自动隐藏Dock AirPods 蓝牙 Xcode 缓存 自动隐藏菜单栏 显示隐藏文件 广播电台 保持清醒 清空垃圾桶 清空粘贴板 静音 隐藏留海等。
 
 > `brew install only-switch`
 
@@ -292,6 +292,7 @@ Quick Look 是 macOS 最方便的功能之一，因为它可以从任何 Finder 
 > 我用的配置
 > 1. [ssnhd/rime-Rime Squirrel 鼠须管配置文件（朙月拼音、小鹤双拼、自然码双拼）](https://github.com/ssnhd/rime)
 > 2. [禁用 Squirrel 英文模式，使用左侧 Shift 切换中英](https://github.com/rime/squirrel/wiki/%E7%A6%81%E7%94%A8-Squirrel-%E8%8B%B1%E6%96%87%E6%A8%A1%E5%BC%8F%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%B7%A6%E4%BE%A7-Shift-%E5%88%87%E6%8D%A2%E4%B8%AD%E8%8B%B1)
+>
 > 我是在1的基础上参考2禁用了英文模式.
 > > 用了自动切换输入法的功能, 英文用自带的输入既可. 鼠须管只用做中文输入.
 
@@ -308,7 +309,10 @@ Quick Look 是 macOS 最方便的功能之一，因为它可以从任何 Finder 
 # Finder 的退出按钮
 defaults write com.apple.finder "QuitMenuItem" -bool "true" && killall Finder
 
+# 允许"任何来源"的应用
+sudo spctl --master-enable
 
+# 按住连续输入
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # 显示隐藏文件
@@ -318,9 +322,7 @@ defaults write com.apple.Finder AppleShowAllFiles -bool true
 # 菜单栏(menu bar) 时间格式调整成 3月1日 周二 18:00:00
 # defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\""
 
-#  改变登陆背景
+# 改变登陆背景
 # 引号里边是图片路径
 defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture "/Users/dongquan/Pictures/桌面壁纸.jpeg"`
-
-
 ```
