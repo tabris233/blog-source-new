@@ -18,11 +18,11 @@ tags:
 
 
 
-**下面的不用看了，现在国际版已经默认带中文了。**
+**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/]**
 
-**下面的不用看了，现在国际版已经默认带中文了。**
+**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/]**
 
-**下面的不用看了，现在国际版已经默认带中文了。**
+**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/]**
 
 # 安装
 
@@ -42,11 +42,11 @@ brew install wpsoffice
 
 1. 先安装一遍国内版，然后把国内版的软件移到其他地方备份好。
 
-```bash
-brew install wpsoffice-cn
-```
+  ```bash
+  brew install wpsoffice-cn
+  ```
 
-APP 安装的目录在 `/Applications/wpsoffice.app/` 在终端执行 `cp -r` 复制到另一个目录就好了就好
+  APP 安装的目录在 `/Applications/wpsoffice.app/` 在终端执行 `cp -r` 复制到另一个目录就好了就好
 
 
 2. 删除国内版，安装国际版
@@ -55,13 +55,13 @@ APP 安装的目录在 `/Applications/wpsoffice.app/` 在终端执行 `cp -r` �
 
 3. 找到中文语言包。
 
-语言包在这个目录下
+  语言包在这个目录下
 
-```bash
-/Applications/wpsoffice.app/Contents/Resources/office6/mui
-```
+  ```bash
+  /Applications/wpsoffice.app/Contents/Resources/office6/mui
+  ```
 
-从国内版复制 `zh_CN`目录到国际版的相同目录下
+  从国内版复制 `zh_CN`目录到国际版的相同目录下
 
 4. 设置中文
 
