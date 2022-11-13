@@ -18,11 +18,12 @@ tags:
 
 
 
-**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/]**
+**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/)**
 
-**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/]**
+**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/)**
 
-**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/]**
+**下面的不用看了，现在国际版已经默认带中文了，从国际版官网下载就好了。 -> [https://www.wps.com/](https://www.wps.com/)**
+
 
 # 安装
 
@@ -67,4 +68,4 @@ brew install wpsoffice
 
    打开 WPS 国际版，【设置】-【Switch Language】，选择文再重启 WPS 就是中文了。部分地方还没有中文翻译不过不影响使用。
 
-   
+
