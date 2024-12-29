@@ -5,7 +5,7 @@ updated: 2024-12-29 11:45:16
 description: ["LeetCode 第430场周赛。复健中。。 | LeetCode Weekly Contest 430. "]
 toc: true
 author: tabris
-img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/202412291141015.png
+img: https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/202412291608962.png
 katex: true
 summary:
 categories:
@@ -22,7 +22,7 @@ tags:
 
 ![](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/202412291141015.png)
 
-![image-20241229121302469](/Users/dongquan/Library/Application Support/typora-user-images/image-20241229121302469.png)
+![image-20241229121302469](https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/PicGo/202412291608962.png)
 
 虽然排名最后跌到 86 了，但还是复健比较成功的一场。
 
